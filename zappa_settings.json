@@ -1,0 +1,24 @@
+{
+    "prod": {
+        "app_function": "app.app",
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "profile_name": "erick",
+        "project_name": "webscrapper",
+        "runtime": "python3.9",
+        "s3_bucket": "zappa-deployment-erick",
+        "events": [
+            {
+                "function": "app.scrape_products_from_walmart",
+                "expression": "rate(12 hours)"
+
+            }
+        ],
+        "timeout_seconds": 300
+    }
+}
